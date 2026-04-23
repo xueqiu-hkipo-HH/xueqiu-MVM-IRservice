@@ -1,0 +1,1355 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雪球上市公司传播方案 Skill · 使用说明书</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+:root {
+  --xq-primary:   #1E7FFF;
+  --xq-primary-d: #0B4FAE;
+  --xq-primary-l: #6FA9FF;
+  --xq-accent:    #FFC93C;
+  --xq-ink:       #0E1726;
+  --xq-bg:        #F4F9FF;
+  --xq-grey:      #E9EEF5;
+  --xq-red:       #E5362B;
+  --xq-mute:      #8A8F99;
+  --xq-card:      #FFFFFF;
+  --radius:       16px;
+  --shadow:       0 4px 24px rgba(14,23,38,0.08);
+  --shadow-lg:    0 12px 48px rgba(14,23,38,0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-family: 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--xq-ink);
+  background: #F0F4F8;
+  scroll-behavior: smooth;
+}
+
+/* ========== HERO ========== */
+.hero {
+  background: linear-gradient(135deg, var(--xq-primary-d) 0%, var(--xq-primary) 50%, var(--xq-primary-l) 100%);
+  color: #fff;
+  padding: 80px 24px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  right: -120px;
+  top: -120px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--xq-accent), transparent 65%);
+  opacity: 0.22;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  left: -80px;
+  bottom: -80px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 60%);
+}
+.hero .badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 6px 20px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  position: relative;
+}
+.hero .subtitle {
+  font-size: 18px;
+  opacity: 0.92;
+  max-width: 640px;
+  margin: 0 auto 32px;
+  line-height: 1.65;
+}
+.hero .meta {
+  font-size: 13px;
+  opacity: 0.7;
+  letter-spacing: 0.5px;
+}
+
+/* ========== NAV ========== */
+.toc-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--xq-grey);
+  padding: 0 24px;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.toc-bar::-webkit-scrollbar { height: 0; }
+.toc-bar a {
+  display: inline-block;
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--xq-mute);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+}
+.toc-bar a:hover,
+.toc-bar a.active {
+  color: var(--xq-primary);
+  border-bottom-color: var(--xq-primary);
+}
+
+/* ========== CONTAINER ========== */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+/* ========== SECTION ========== */
+section {
+  margin-bottom: 64px;
+}
+section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--xq-ink);
+  margin-bottom: 8px;
+  padding-left: 20px;
+  border-left: 5px solid var(--xq-primary);
+}
+section .section-sub {
+  font-size: 15px;
+  color: var(--xq-mute);
+  margin-bottom: 32px;
+  padding-left: 25px;
+}
+section p {
+  margin-bottom: 16px;
+  color: rgba(14,23,38,0.85);
+}
+
+/* ========== CARDS ========== */
+.card {
+  background: var(--xq-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(14,23,38,0.04);
+  transition: box-shadow 0.3s;
+}
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+.card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--xq-ink);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card h3 .icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.card h3 .icon.blue { background: var(--xq-bg); color: var(--xq-primary); }
+.card h3 .icon.gold { background: #FFF8E6; color: #D4960A; }
+.card h3 .icon.red  { background: #FFF0EF; color: var(--xq-red); }
+.card h3 .icon.dark { background: #F0F1F3; color: var(--xq-ink); }
+
+.card ul, .card ol {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+.card li {
+  margin-bottom: 8px;
+  color: rgba(14,23,38,0.82);
+}
+.card li strong {
+  color: var(--xq-ink);
+}
+
+/* ========== FLOW DIAGRAM ========== */
+.flow {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  margin: 32px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.flow-step {
+  flex: 1;
+  min-width: 220px;
+  max-width: 300px;
+  background: var(--xq-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 24px;
+  text-align: center;
+  position: relative;
+  border: 1px solid rgba(14,23,38,0.04);
+}
+.flow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--xq-primary);
+  min-width: 48px;
+  flex-shrink: 0;
+}
+.flow-step .step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--xq-primary), var(--xq-primary-d));
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.flow-step h4 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--xq-ink);
+}
+.flow-step p {
+  font-size: 14px;
+  color: var(--xq-mute);
+  line-height: 1.55;
+}
+.flow-step .ask-count {
+  display: inline-block;
+  background: var(--xq-accent);
+  color: var(--xq-ink);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+/* ========== MODULE TABLE ========== */
+.module-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+.module-item {
+  background: var(--xq-card);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(14,23,38,0.06);
+  padding: 20px 24px;
+  border-left: 4px solid var(--xq-primary);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.module-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.module-item.required {
+  border-left-color: var(--xq-red);
+}
+.module-item.optional {
+  border-left-color: var(--xq-primary-l);
+}
+.module-item.user-input {
+  border-left-color: var(--xq-accent);
+}
+.module-num {
+  min-width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--xq-bg);
+  color: var(--xq-primary);
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.module-item.required .module-num {
+  background: #FFF0EF;
+  color: var(--xq-red);
+}
+.module-item.user-input .module-num {
+  background: #FFF8E6;
+  color: #D4960A;
+}
+.module-body h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--xq-ink);
+}
+.module-body .desc {
+  font-size: 14px;
+  color: var(--xq-mute);
+  margin-bottom: 6px;
+}
+.module-body .tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+.tag.req { background: #FFF0EF; color: var(--xq-red); }
+.tag.auto { background: var(--xq-bg); color: var(--xq-primary); }
+.tag.manual { background: #FFF8E6; color: #D4960A; }
+.tag.pages { background: #F0F1F3; color: var(--xq-ink); }
+
+/* ========== ALERT ========== */
+.alert {
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 15px;
+  line-height: 1.65;
+}
+.alert.danger {
+  background: #FFF0EF;
+  border: 1px solid rgba(229,54,43,0.2);
+  color: #9B1B12;
+}
+.alert.info {
+  background: var(--xq-bg);
+  border: 1px solid rgba(30,127,255,0.15);
+  color: var(--xq-primary-d);
+}
+.alert.warn {
+  background: #FFF8E6;
+  border: 1px solid rgba(255,201,60,0.3);
+  color: #8A6800;
+}
+.alert .alert-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+/* ========== CODE ========== */
+.code-block {
+  background: var(--xq-ink);
+  color: #E6EDF6;
+  border-radius: 12px;
+  padding: 24px 28px;
+  font-family: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-x: auto;
+  margin: 16px 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.code-block .comment { color: #6B7D99; }
+.code-block .keyword { color: var(--xq-accent); }
+.code-block .string  { color: #7EE0A0; }
+
+/* ========== TABLE ========== */
+.data-table-wrap {
+  overflow-x: auto;
+  margin: 16px 0;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+table.dtable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: #fff;
+}
+table.dtable th {
+  background: var(--xq-primary-d);
+  color: #fff;
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+table.dtable td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--xq-grey);
+  vertical-align: top;
+}
+table.dtable tr:nth-child(even) td {
+  background: var(--xq-bg);
+}
+table.dtable tr:last-child td {
+  border-bottom: none;
+}
+
+/* ========== CHECKLIST ========== */
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+.checklist li {
+  padding: 10px 0 10px 36px;
+  position: relative;
+  border-bottom: 1px solid var(--xq-grey);
+  font-size: 15px;
+  color: rgba(14,23,38,0.85);
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: '☐';
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  font-size: 18px;
+  color: var(--xq-primary);
+}
+
+/* ========== KEYWORD TAGS ========== */
+.kw-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+.kw {
+  display: inline-block;
+  background: var(--xq-bg);
+  color: var(--xq-primary);
+  border: 1px solid rgba(30,127,255,0.2);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ========== COMPETITOR FRAMEWORK ========== */
+.compete-dims {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+.compete-dim {
+  background: var(--xq-card);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(14,23,38,0.06);
+  border-top: 4px solid var(--xq-primary);
+}
+.compete-dim:nth-child(2) { border-top-color: #5A4FCF; }
+.compete-dim:nth-child(3) { border-top-color: #FF7A3C; }
+.compete-dim:nth-child(4) { border-top-color: var(--xq-accent); }
+.compete-dim .dim-icon { font-size: 32px; margin-bottom: 8px; }
+.compete-dim h5 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.compete-dim p { font-size: 13px; color: var(--xq-mute); }
+
+/* ========== THEME PREVIEW ========== */
+.theme-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 20px 0;
+}
+.theme-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+.theme-card:hover {
+  border-color: var(--xq-primary);
+}
+.theme-header {
+  padding: 24px;
+  color: #fff;
+  text-align: center;
+}
+.theme-card:first-child .theme-header {
+  background: linear-gradient(135deg, var(--xq-primary-d), var(--xq-primary));
+}
+.theme-card:last-child .theme-header {
+  background: linear-gradient(135deg, #7A1F2B, #C8272A);
+}
+.theme-header h5 { font-size: 18px; font-weight: 700; }
+.theme-header p { font-size: 13px; opacity: 0.85; margin-top: 4px; }
+.theme-colors {
+  display: flex;
+  gap: 0;
+  height: 8px;
+}
+.theme-colors span {
+  flex: 1;
+  display: block;
+}
+.theme-body {
+  padding: 16px 20px;
+  background: #fff;
+  font-size: 13px;
+  color: var(--xq-mute);
+  line-height: 1.55;
+}
+
+/* ========== FOOTER ========== */
+.page-footer {
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--xq-ink);
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+}
+.page-footer .logo-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--xq-accent);
+  margin-bottom: 8px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 680px) {
+  .hero h1 { font-size: 28px; }
+  .hero { padding: 56px 20px 48px; }
+  .flow { flex-direction: column; align-items: center; }
+  .flow-arrow { transform: rotate(90deg); min-width: auto; padding: 8px 0; }
+  .flow-step { max-width: 100%; }
+  .theme-preview { grid-template-columns: 1fr; }
+  section h2 { font-size: 22px; }
+  .compete-dims { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== HERO ==================== -->
+<header class="hero">
+  <div class="badge">SKILL 使用说明书 · v1.1</div>
+  <h1>雪球上市公司<br>MVM / IR 传播方案生成器</h1>
+  <p class="subtitle">从客户名到路演级 PPT，三步交付。<br>14 个模块逐项确认，自动跑数 + 智能编排 + 一键出稿。</p>
+  <p class="meta">xueqiu-listed-mvm-plan · 更新于 2026-04-22 · Driven Agent Skill</p>
+</header>
+
+<!-- ==================== TOC ==================== -->
+<nav class="toc-bar">
+  <a href="#what">这是什么</a>
+  <a href="#trigger">触发条件</a>
+  <a href="#flow">三步流程</a>
+  <a href="#modules">14 个板块</a>
+  <a href="#compete">竞对框架</a>
+  <a href="#theme">PPT 主题</a>
+  <a href="#rules">核心约束</a>
+  <a href="#checklist">成功标准</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<div class="container">
+
+<!-- ==================== WHAT ==================== -->
+<section id="what">
+  <h2>这是什么</h2>
+  <p class="section-sub">一句话：帮销售把上市公司客户的基本面 + 股价叙事 + 传播诉求，转化为路演级传播方案。</p>
+
+  <div class="card">
+    <h3><span class="icon blue">🎯</span>核心定位</h3>
+    <p>你不是模板生成器。你是雪球上市公司市值管理（MVM）与 IR 传播的<strong>首席策划</strong>，深谙资本市场博弈逻辑、雪球社区情绪与 PGC/UGC 生态。</p>
+    <p>输出物的标准：<strong>能直接交给上市公司 IR 总监、董秘、市值管理负责人过会讨论的材料</strong>——逻辑严密、数据可溯、投资调性浓郁、视觉专业。</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon gold">📦</span>交付物清单</h3>
+    <ul>
+      <li><strong>Markdown 文字版方案</strong>：完整叙事闭环，每模块有主标题句 + 小标题句 + 正文 + 销售补充占位</li>
+      <li><strong>HTML PPT 演示文稿</strong>：1920×1080，可直接浏览器预览、⌘+P 导出 PDF、Keynote 打开</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon dark">🔌</span>自动调用的数据源 & 技能</h3>
+    <ul>
+      <li><strong>webSearch</strong> — 行业趋势、券商研报、财经资讯</li>
+      <li><strong>xq（雪球数据）</strong> — 社区热度、搜索量、发帖量、PGC/UGC 声音</li>
+      <li><strong>snow-pulse / snow-pulse-standalone</strong> — 个股分析（价格归因、社区活跃度、情绪）</li>
+      <li><strong>competitor-analysis</strong> — 竞对筛选与四维对标</li>
+      <li><strong>fmp</strong> — 基本面数据、财务指标、估值、分析师预期</li>
+      <li><strong>listing-radar</strong>（可选） — 投资者关切维度判断</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== TRIGGER ==================== -->
+<section id="trigger">
+  <h2>触发条件</h2>
+  <p class="section-sub">对话中出现以下关键词组合即自动触发</p>
+
+  <div class="card">
+    <h3><span class="icon blue">⚡</span>关键词组合（任一即可）</h3>
+    <div class="kw-group">
+      <span class="kw">公司名 / 股票代码</span>
+      <span class="kw">+</span>
+    </div>
+    <div class="kw-group">
+      <span class="kw">方案</span>
+      <span class="kw">营销方案</span>
+      <span class="kw">传播方案</span>
+      <span class="kw">传播规划</span>
+      <span class="kw">路演</span>
+      <span class="kw">过会</span>
+      <span class="kw">市值管理</span>
+      <span class="kw">MVM</span>
+      <span class="kw">IR</span>
+      <span class="kw">预期管理</span>
+      <span class="kw">投资者关系材料</span>
+      <span class="kw">雪球方案</span>
+      <span class="kw">雪球合作</span>
+      <span class="kw">上市公司上雪球</span>
+    </div>
+  </div>
+
+  <div class="alert info">
+    <div class="alert-title">💡 适用范围</div>
+    A 股 / 港股 / 美股上市公司均可。ADR、港股分拆、SPAC 等非常规结构需额外确认。<br>
+    若客户是金融机构 / 基金 / 券商资管产品 → 请改用 <code>xueqiu-biz-plan</code> 金融段。
+  </div>
+
+  <div class="alert danger">
+    <div class="alert-title">🚫 不适用场景</div>
+    纯单股量化分析 · Fintech 基金营销 · 未上市 Pre-IPO Pitch · 行业研报撰写
+  </div>
+</section>
+
+<!-- ==================== FLOW ==================== -->
+<section id="flow">
+  <h2>三步交付流程</h2>
+  <p class="section-sub">全流程 16 次 askUser（Step 1 × 14 + Step 2 × 1 + Step 3 × 1），其他节点零阻断</p>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="step-num">1</div>
+      <h4>分模块逐项问询</h4>
+      <p>14 个板块 · 每板块独立 askUser · 一次一题，锁定一个决策</p>
+      <span class="ask-count">14 次 askUser</span>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="step-num">2</div>
+      <h4>文字版方案生成</h4>
+      <p>自动跑数 + 智能编排 → Markdown 文件 → 立即交付 → 确认或修改</p>
+      <span class="ask-count">1 次 askUser</span>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="step-num">3</div>
+      <h4>PPT 生成</h4>
+      <p>选择视觉主题 → 自动生成 1920×1080 HTML PPT → 立即交付</p>
+      <span class="ask-count">1 次 askUser</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon blue">🔄</span>Step 1 · 问询节奏规则</h3>
+    <ul>
+      <li><strong>一次一问</strong>：每问只做一个决策，降低认知负担</li>
+      <li><strong>进度感</strong>：提问标题带 <code>板块 {n}/14 · {板块名}</code></li>
+      <li><strong>预填智能</strong>：能推断的内容一定预填，销售确认/覆盖即可</li>
+      <li><strong>就地复用</strong>：选"手动补充"→ 销售文本直接入稿，不再跑数</li>
+      <li><strong>不回退</strong>：不明确回复重问一次，仍不明确则非必填板块默认启用</li>
+      <li><strong>零插入</strong>：14 次之间不插 presentFile，全部收完才进 Step 2</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon gold">📝</span>Step 2 · 自动文字稿</h3>
+    <ul>
+      <li>按勾选模块顺序输出，每模块四段式结构：<strong>主标题句 → 小标题句 → 正文 → 📝销售补充</strong></li>
+      <li>自动调用 snow-pulse / 市场搜索 / 雪球热度 / 竞对分析 等数据源</li>
+      <li>模块间有<strong>承上启下</strong>叙事闭环</li>
+      <li>写入 <code>{客户简称}-{日期}-传播方案.md</code> → 立即交付</li>
+      <li>结尾只问一次："确认生成 PPT / 需要修改"</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon dark">🎨</span>Step 3 · PPT 生成</h3>
+    <ul>
+      <li>问一次模板方向：<strong>A = 雪球蓝官方模板</strong> / <strong>B = 客户调性融合定制</strong></li>
+      <li>选完直接生成 HTML PPT，不再问任何问题</li>
+      <li>结尾用 passive 菜单收尾，告知可做的后续操作</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== MODULES ==================== -->
+<section id="modules">
+  <h2>14 个板块详解</h2>
+  <p class="section-sub">红色 = 必填 · 蓝色 = 可选（三选一：✅启用 / ✍️手动 / ⏭️跳过）· 金色 = 用户自由输入</p>
+
+  <div class="module-grid">
+
+    <div class="module-item required">
+      <div class="module-num">1</div>
+      <div class="module-body">
+        <h4>上市公司客户名称</h4>
+        <div class="desc">自由输入，预填识别到的公司名 + 股票代码。合并进封面页。</div>
+        <span class="tag req">必填</span>
+      </div>
+    </div>
+
+    <div class="module-item required">
+      <div class="module-num">2</div>
+      <div class="module-body">
+        <h4>传播目标</h4>
+        <div class="desc">目标拆解为 3 个子目标（声量 / 机构覆盖 / 散户渗透），附考核口径。</div>
+        <span class="tag req">必填</span> <span class="tag pages">1 页</span>
+      </div>
+    </div>
+
+    <div class="module-item optional">
+      <div class="module-num">3</div>
+      <div class="module-body">
+        <h4>市场洞察</h4>
+        <div class="desc">全网搜索近一年行业趋势，提炼 2-3 页。数据源：webSearch（券商研报 / 头部财经媒体）。</div>
+        <span class="tag auto">自动跑数</span> <span class="tag pages">2-3 页</span>
+      </div>
+    </div>
+
+    <div class="module-item optional">
+      <div class="module-num">4</div>
+      <div class="module-body">
+        <h4>为什么是雪球</h4>
+        <div class="desc">雪球用户画像重合度、三大传播引擎、差异化工具矩阵、过往案例。内容尽量充分，宁多勿少。</div>
+        <span class="tag auto">自动跑数</span> <span class="tag pages">1-3 页</span>
+      </div>
+    </div>
+
+    <div class="module-item optional">
+      <div class="module-num">5</div>
+      <div class="module-body">
+        <h4>雪球社区热度云图</h4>
+        <div class="desc">半年热词搜索量 + 发帖量趋势 + PGC vs UGC 声音分层 + 情绪温度。数据源：xq 站内接口。</div>
+        <span class="tag auto">自动跑数</span> <span class="tag pages">2-3 页</span>
+      </div>
+    </div>
+
+    <div class="module-item optional">
+      <div class="module-num">6</div>
+      <div class="module-body">
+        <h4>个股分析</h4>
+        <div class="desc">基本面坐标 + 估值位置 + 叙事催化剂清单。首选 snow-pulse-standalone 技能驱动。</div>
+        <span class="tag auto">自动跑数</span> <span class="tag pages">≥3 页</span>
+      </div>
+    </div>
+
+    <div class="module-item optional">
+      <div class="module-num">7</div>
+      <div class="module-body">
+        <h4>竞对分析</h4>
+        <div class="desc">同市值 / 大市值 / 高成长各 1 家 × MVM/IR/PR/财报传播四维对标 + 雪球站内热度对比。</div>
+        <span class="tag auto">自动跑数</span> <span class="tag pages">2-3 页</span>
+        <div class="desc" style="margin-top:4px; font-style:italic;">⚠️ 可追问竞对名单（算入本板块流程）</div>
+      </div>
+    </div>
+
+    <div class="module-item optional">
+      <div class="module-num">8</div>
+      <div class="module-body">
+        <h4>传播策略</h4>
+        <div class="desc">从前面模块推导 3-5 个策略维度：内容引擎 / 节奏引擎 / 互动引擎 / 数据引擎四象限。</div>
+        <span class="tag auto">自动推导</span> <span class="tag pages">1 页</span>
+      </div>
+    </div>
+
+    <div class="module-item optional">
+      <div class="module-num">9</div>
+      <div class="module-body">
+        <h4>传播主题</h4>
+        <div class="desc">1 个主推主题 + 3-5 个备选，每个配推导逻辑。投资语言/雪球语言调性。</div>
+        <span class="tag auto">自动推导</span> <span class="tag pages">1 页</span>
+      </div>
+    </div>
+
+    <div class="module-item optional">
+      <div class="module-num">10</div>
+      <div class="module-body">
+        <h4>传播节奏 ROADMAP</h4>
+        <div class="desc">横向三阶段时间轴：预热期 → 引爆期 → 长尾期，每阶段标注核心目标/动作/里程碑。</div>
+        <span class="tag auto">自动跑数</span> <span class="tag pages">1 页</span>
+        <div class="desc" style="margin-top:4px; font-style:italic;">⚠️ 可追问关键日期锚（算入本板块流程）</div>
+      </div>
+    </div>
+
+    <div class="module-item optional">
+      <div class="module-num">11</div>
+      <div class="module-body">
+        <h4>传播节奏概述</h4>
+        <div class="desc">每阶段 1-2 页展开，具体动作 + 资源匹配 + 产出物示范 + 对应 sku 编号。</div>
+        <span class="tag auto">自动跑数</span> <span class="tag pages">3-6 页</span>
+      </div>
+    </div>
+
+    <div class="module-item user-input">
+      <div class="module-num">12</div>
+      <div class="module-body">
+        <h4>优质案例</h4>
+        <div class="desc">销售提供案例素材。留空则不体现。每案例一页：合作时段 + 核心打法 + 数据成果 + 迁移启示。</div>
+        <span class="tag manual">用户提供</span>
+      </div>
+    </div>
+
+    <div class="module-item user-input">
+      <div class="module-num">13</div>
+      <div class="module-body">
+        <h4>资源报价</h4>
+        <div class="desc">销售提供报价信息或指向内部报价单。必须与传播节奏 sku 一一对应。严禁擅自编造价格。</div>
+        <span class="tag manual">用户提供</span>
+      </div>
+    </div>
+
+    <div class="module-item user-input">
+      <div class="module-num">14</div>
+      <div class="module-body">
+        <h4>其他内容补充</h4>
+        <div class="desc">客户红线、合规口径、特定 IR 事件等附录内容。留空则不体现。</div>
+        <span class="tag manual">用户提供</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== NARRATIVE ==================== -->
+<section id="narrative">
+  <h2>叙事闭环逻辑</h2>
+  <p class="section-sub">方案的灵魂：不是八个独立 section，而是一个连贯的投资故事</p>
+
+  <div class="card" style="padding: 0; overflow: hidden;">
+    <div style="display: flex; flex-direction: column;">
+      <div style="display: flex; align-items: center; padding: 16px 24px; background: var(--xq-bg); border-bottom: 1px solid var(--xq-grey);">
+        <span style="font-size: 20px; margin-right: 12px;">📊</span>
+        <div>
+          <strong>市场洞察</strong>（行业 β）
+          <div style="font-size: 13px; color: var(--xq-mute);">↓ "行业 β 已定价，焦点回到公司 α"</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; padding: 16px 24px; border-bottom: 1px solid var(--xq-grey);">
+        <span style="font-size: 20px; margin-right: 12px;">🔍</span>
+        <div>
+          <strong>个股分析 + 雪球社区热度</strong>（公司 α）
+          <div style="font-size: 13px; color: var(--xq-mute);">↓ "公司 α 充分、估值安全、催化剂在手"</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; padding: 16px 24px; background: var(--xq-bg); border-bottom: 1px solid var(--xq-grey);">
+        <span style="font-size: 20px; margin-right: 12px;">⚔️</span>
+        <div>
+          <strong>竞对分析</strong>（相对估值 + 传播打法参考）
+          <div style="font-size: 13px; color: var(--xq-mute);">↓ "同行怎么做，客户差异化在哪"</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; padding: 16px 24px; border-bottom: 1px solid var(--xq-grey);">
+        <span style="font-size: 20px; margin-right: 12px;">🧭</span>
+        <div>
+          <strong>传播策略</strong>（3-5 叙事维度）
+          <div style="font-size: 13px; color: var(--xq-mute);">↓ "四大引擎协同的策略三叉戟"</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; padding: 16px 24px; background: var(--xq-bg); border-bottom: 1px solid var(--xq-grey);">
+        <span style="font-size: 20px; margin-right: 12px;">💎</span>
+        <div>
+          <strong>传播主题</strong>（1 主 + 3-5 备选）
+          <div style="font-size: 13px; color: var(--xq-mute);">↓ "一锤定音的叙事锚"</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; padding: 16px 24px; border-bottom: 1px solid var(--xq-grey);">
+        <span style="font-size: 20px; margin-right: 12px;">📅</span>
+        <div>
+          <strong>传播节奏 ROADMAP</strong>（三阶段）
+          <div style="font-size: 13px; color: var(--xq-mute);">↓ "预热 → 引爆 → 长尾"</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; padding: 16px 24px; background: var(--xq-bg);">
+        <span style="font-size: 20px; margin-right: 12px;">🚀</span>
+        <div>
+          <strong>传播节奏概述</strong>（每阶段具体动作 + 资源匹配）
+          <div style="font-size: 13px; color: var(--xq-mute);">→ 案例背书 → 报价对齐 → 附录闭环</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert info">
+    <div class="alert-title">📝 实操要求</div>
+    每个模块末尾加一句"承上启下"，让整篇方案读下来是<strong>一个连贯的故事</strong>，不是拼凑的 section。
+  </div>
+</section>
+
+<!-- ==================== COMPETE ==================== -->
+<section id="compete">
+  <h2>竞对分析四维框架</h2>
+  <p class="section-sub">每家竞对覆盖四个维度，每个维度 2-3 个可观测信号</p>
+
+  <div class="card">
+    <h3><span class="icon blue">🎯</span>选样规则（3 家）</h3>
+    <div class="data-table-wrap">
+      <table class="dtable">
+        <thead>
+          <tr>
+            <th>类型</th>
+            <th>筛选标准</th>
+            <th>对标价值</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>同市值竞对</strong></td>
+            <td>市值 ±30%</td>
+            <td>估值对标</td>
+          </tr>
+          <tr>
+            <td><strong>大市值竞对</strong></td>
+            <td>市值 ≥ 客户 2 倍</td>
+            <td>头部打法参考</td>
+          </tr>
+          <tr>
+            <td><strong>高成长竞对</strong></td>
+            <td>近 3 年营收 CAGR ≥ 20%</td>
+            <td>叙事升级路径参考</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="compete-dims">
+    <div class="compete-dim">
+      <div class="dim-icon">💰</div>
+      <h5>MVM 动作</h5>
+      <p>回购 · 大股东增持<br>分红 · 股权激励<br>市值管理表态</p>
+    </div>
+    <div class="compete-dim">
+      <div class="dim-icon">🤝</div>
+      <h5>IR 动作</h5>
+      <p>业绩说明会 · 路演<br>分析师覆盖 · 机构调研<br>雪球董秘直答</p>
+    </div>
+    <div class="compete-dim">
+      <div class="dim-icon">📣</div>
+      <h5>PR 动作</h5>
+      <p>官方账号矩阵<br>大事件发布节奏<br>ESG 披露 · 品牌热度</p>
+    </div>
+    <div class="compete-dim">
+      <div class="dim-icon">📰</div>
+      <h5>财报传播</h5>
+      <p>预喜节奏 · 图文卡片<br>雪球专题页 · 专家连线<br>T±5 日股价反应</p>
+    </div>
+  </div>
+
+  <div class="alert info">
+    <div class="alert-title">📊 雪球站内热度对标（收口）</div>
+    三家竞对 + 客户，统一采集近 180 天的搜索量趋势、发帖量趋势、PGC 声音 Top3，输出四方对比表。<br>
+    最后给客户一句<strong>可迁移启示</strong>：可以抄哪个 + 差异化做哪个。
+  </div>
+</section>
+
+<!-- ==================== THEME ==================== -->
+<section id="theme">
+  <h2>PPT 主题选择</h2>
+  <p class="section-sub">Step 3 二选一，选完立即生成</p>
+
+  <div class="theme-preview">
+    <div class="theme-card">
+      <div class="theme-header">
+        <h5>A · 雪球蓝官方模板</h5>
+        <p>推荐 · 30 秒出稿</p>
+      </div>
+      <div class="theme-colors">
+        <span style="background: #1E7FFF;"></span>
+        <span style="background: #0B4FAE;"></span>
+        <span style="background: #6FA9FF;"></span>
+        <span style="background: #FFC93C;"></span>
+        <span style="background: #0E1726;"></span>
+      </div>
+      <div class="theme-body">
+        主色 <code>#1E7FFF</code> / 深蓝 <code>#0B4FAE</code> / 辅金 <code>#FFC93C</code> / 墨 <code>#0E1726</code><br>
+        客户 logo 占位，版式遵循雪球官方母版
+      </div>
+    </div>
+    <div class="theme-card">
+      <div class="theme-header">
+        <h5>B · 客户调性融合定制</h5>
+        <p>60 秒出稿</p>
+      </div>
+      <div class="theme-colors">
+        <span style="background: #7A1F2B;"></span>
+        <span style="background: #E5B971;"></span>
+        <span style="background: #C8272A;"></span>
+        <span style="background: #FFD166;"></span>
+        <span style="background: #1F1F1F;"></span>
+      </div>
+      <div class="theme-body">
+        基于客户 logo 主色 + 行业调性 + 投资语言调性自动推导<br>
+        系统自动执行反绿检测（HSL 90°-150° 区间全部屏蔽）
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon dark">🏗</span>PPT 技术规格</h3>
+    <div class="data-table-wrap">
+      <table class="dtable">
+        <thead>
+          <tr><th>规格</th><th>说明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>格式</td><td>自包含 HTML 单文件（无外部 JS / 无外部图片 CDN）</td></tr>
+          <tr><td>画面尺寸</td><td>1920 × 1080（16:9 Landscape）</td></tr>
+          <tr><td>字体</td><td>Noto Sans SC（@import 内联，离线降级到系统字体）</td></tr>
+          <tr><td>每页换页</td><td><code>page-break-after: always</code></td></tr>
+          <tr><td>涨跌配色</td><td>红涨 <code style="color:#E5362B;">#E5362B</code> / 灰跌 <code style="color:#8A8F99;">#8A8F99</code>（A 股习惯）</td></tr>
+          <tr><td>导出方式</td><td>浏览器 ⌘+P → PDF / Keynote File → Open 直接导入</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon blue">📐</span>6 种页型（Slide Class）</h3>
+    <div class="data-table-wrap">
+      <table class="dtable">
+        <thead>
+          <tr><th>页型</th><th>用途</th><th>关键特征</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>.cover</code></td><td>封面页</td><td>渐变底 + 客户水印 + 传播主题 + 日期</td></tr>
+          <tr><td><code>.content</code></td><td>内容页（占 80%）</td><td>顶栏 tag + h1 主标题 + h2 小标题 + 正文</td></tr>
+          <tr><td><code>.data-table</code></td><td>数据 / 对比页</td><td>结构化表格 + 数据来源标注</td></tr>
+          <tr><td><code>.compete-matrix</code></td><td>竞对分析专用</td><td>三列布局 + 行业定调 tag + 四维段落</td></tr>
+          <tr><td><code>.roadmap</code></td><td>时间轴页</td><td>三列 Grid 并列（严禁叠加）</td></tr>
+          <tr><td><code>.thanks</code></td><td>感谢页</td><td>深色底 + THANKS + 联系方式占位</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== RULES ==================== -->
+<section id="rules">
+  <h2>核心约束</h2>
+  <p class="section-sub">全篇通用 · 不可违反</p>
+
+  <div class="card">
+    <h3><span class="icon red">🚫</span>1 · 严禁绿色</h3>
+    <p>封面、内页、图表、色块、强调色一律<strong>禁用绿色系</strong>。涨跌指示统一用<strong>红涨 · 灰跌</strong>（A 股习惯）。</p>
+    <p>CSS 变量层面屏蔽 HSL 色调角 80°-160° 区间。生成前自动运行反绿检测函数。</p>
+    <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+      <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; background: #FFF0EF; border-radius: 8px; font-size: 13px; color: #9B1B12;">
+        <span style="width: 16px; height: 16px; border-radius: 4px; background: #00B050; display: inline-block;"></span> #00B050 ✕
+      </span>
+      <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; background: #FFF0EF; border-radius: 8px; font-size: 13px; color: #9B1B12;">
+        <span style="width: 16px; height: 16px; border-radius: 4px; background: #2ECC71; display: inline-block;"></span> #2ECC71 ✕
+      </span>
+      <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; background: #FFF0EF; border-radius: 8px; font-size: 13px; color: #9B1B12;">
+        <span style="width: 16px; height: 16px; border-radius: 4px; background: #52C41A; display: inline-block;"></span> #52C41A ✕
+      </span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon blue">💬</span>2 · 投资语言 / 雪球语言</h3>
+    <p>通篇使用资本市场与雪球社区语汇。<strong>严禁</strong> PR 稿式形容词堆砌、严禁泛公关语言。</p>
+    <div class="kw-group" style="margin-top: 12px;">
+      <span class="kw" style="border-color: rgba(30,127,255,0.4);">估值弹性</span>
+      <span class="kw" style="border-color: rgba(30,127,255,0.4);">预期差</span>
+      <span class="kw" style="border-color: rgba(30,127,255,0.4);">叙事修复</span>
+      <span class="kw" style="border-color: rgba(30,127,255,0.4);">催化剂</span>
+      <span class="kw" style="border-color: rgba(30,127,255,0.4);">筹码结构</span>
+      <span class="kw" style="border-color: rgba(30,127,255,0.4);">机构抱团</span>
+      <span class="kw" style="border-color: rgba(30,127,255,0.4);">散户共识</span>
+      <span class="kw" style="border-color: rgba(30,127,255,0.4);">预期管理</span>
+    </div>
+    <div class="alert danger" style="margin-top: 16px; margin-bottom: 0;">
+      <strong>禁用词</strong>：乘风破浪 / 勇立潮头 / 再创辉煌 / 彰显担当 / 绿意盎然 / 春满枝头
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon gold">📋</span>3 · 每页必备双标题</h3>
+    <p>这是评判"路演级"的刚性标准：</p>
+    <ul>
+      <li><strong>主标题句</strong>（≤20 字）：带观点的叙事推进，如"基本面拐点已经出现"</li>
+      <li><strong>小标题句</strong>（≤40 字）：数据/结论精炼，如"2025 营收 +11.3%，自由现金流首次突破 500 亿"</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon red">⛔</span>4 · PPT 零叠加规则</h3>
+    <p>PPT 视觉层<strong>严禁</strong>任何版块/色块/文本框互相遮挡。</p>
+    <p>Roadmap 三阶段时间轴<strong>不得使用负 margin 做横向位移叠加</strong>——改用三列 Grid 并列或纵向独立三行。</p>
+    <div class="code-block"><span class="comment">/* ✅ 正确：三列 Grid 并列 */</span>
+.roadmap {
+  <span class="keyword">display</span>: grid;
+  <span class="keyword">grid-template-columns</span>: repeat(3, 1fr);
+  <span class="keyword">gap</span>: 32px;
+}
+
+<span class="comment">/* ❌ 禁止：负 margin 叠加 */</span>
+.gantt-row.s2 {
+  <span class="keyword">margin-top</span>: -170px;  <span class="comment">/* 这会造成遮挡！*/</span>
+}</div>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon dark">🇨🇳</span>5 · 汉语言环境</h3>
+    <p>除品牌名、股票代码、必要专业缩写（IR / MVM / PGC / UGC 等）外，<strong>通篇中文</strong>。不出现大段英文。</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon blue">⚡</span>6 · 丝滑交付</h3>
+    <ul>
+      <li>每个节点输出文件后<strong>立即 presentFile</strong>，不要问"要不要看"</li>
+      <li>任何节点不要问"下一步要做什么"——用 passive 菜单告知可选操作</li>
+      <li>全流程恰好 <strong>16 次 askUser</strong>（14 + 1 + 1），其他节点零阻断</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== CHECKLIST ==================== -->
+<section id="checklist">
+  <h2>成功标准 Checklist</h2>
+  <p class="section-sub">每次交付前核对一遍</p>
+
+  <div class="card" style="padding: 24px 28px;">
+    <h3 style="margin-bottom: 16px;"><span class="icon blue">✅</span>流程 & 问询</h3>
+    <ul class="checklist">
+      <li>Step 1 使用 14 次独立 askUser，每次只问一个板块（严禁批量勾选大表单）</li>
+      <li>2 个必填字段（客户名 / 传播目标）完成，没有给"跳过"选项</li>
+      <li>手动补充的模块原样落入 Markdown，不再跑数</li>
+      <li>跳过的模块方案中彻底不出现（Markdown 和 PPT 都不生成对应页）</li>
+      <li>Step 2 askUser 只问一次"是否修改"</li>
+      <li>Step 3 askUser 只问一次"模板方向 A/B"</li>
+      <li>全流程：Step 1 × 14 + Step 2 × 1 + Step 3 × 1 = 16 次 askUser</li>
+    </ul>
+  </div>
+
+  <div class="card" style="padding: 24px 28px;">
+    <h3 style="margin-bottom: 16px;"><span class="icon gold">📝</span>内容质量</h3>
+    <ul class="checklist">
+      <li>每个启用模块都调用对应数据源（snow-pulse / 站内热度 / webSearch / competitor-analysis）</li>
+      <li>每页都有"主标题句（≤20字）+ 小标题句（≤40字）"</li>
+      <li>每个模块末尾有"📝销售补充"留白</li>
+      <li>全篇投资语言 / 雪球语言，无 PR 稿式空话</li>
+      <li>模块间有承上启下的叙事闭环</li>
+      <li>竞对分析覆盖"同市值 / 大市值 / 高成长"三类 × "MVM / IR / PR / 财报传播"四维</li>
+      <li>个股分析 ≥ 3 页（snow-pulse-standalone 主导）</li>
+      <li>雪球社区热度覆盖半年 · 包含搜索量 + 发帖量 + PGC/UGC 声音</li>
+      <li>传播主题：1 主 + 3-5 备选</li>
+      <li>Roadmap：三阶段 + 每阶段有重点内容</li>
+    </ul>
+  </div>
+
+  <div class="card" style="padding: 24px 28px;">
+    <h3 style="margin-bottom: 16px;"><span class="icon red">🎨</span>PPT 视觉</h3>
+    <ul class="checklist">
+      <li>全篇无绿色视觉（CSS 变量层面屏蔽）</li>
+      <li>所有 CSS 颜色通过反绿检测</li>
+      <li>@page 1920×1080 landscape 存在</li>
+      <li>每张 .slide 都有 page-break-after</li>
+      <li>每张 .content 都有 h1 + h2</li>
+      <li>封面有客户名 + 传播主题 + 日期</li>
+      <li>底部每页都有 "雪球商业 · 机密 · {date}"</li>
+      <li>涨跌颜色用红/灰，非绿</li>
+      <li>⭐ 零叠加：Roadmap 使用三列 Grid 并列，严禁 margin-top: -Npx</li>
+      <li>PPT 产出 1920×1080 HTML，自包含，可打印</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== FAQ ==================== -->
+<section id="faq">
+  <h2>FAQ · 常见问题</h2>
+  <p class="section-sub">快速排障</p>
+
+  <div class="card">
+    <h3><span class="icon blue">❓</span>销售回复不明确怎么办？</h3>
+    <p>就地重问一次。仍不明确则<strong>非必填板块默认启用</strong>继续推进，不要卡流程。</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon blue">❓</span>snow-pulse-standalone 技能不存在？</h3>
+    <p>降级方案：<code>snow-pulse</code>（已内置）+ <code>listing-radar</code> + <code>fmp</code> 数据组合替代。</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon blue">❓</span>客户是 ADR / 港股分拆 / SPAC？</h3>
+    <p>需额外确认上市主体结构后再走流程。若为金融机构/基金产品，应转用 <code>xueqiu-biz-plan</code>。</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon blue">❓</span>能否只出文字版不出 PPT？</h3>
+    <p>可以。Step 2 交付后，若销售不需要 PPT，直接使用 Markdown 文件即可。Step 3 非强制。</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon blue">❓</span>如何修改已生成的方案？</h3>
+    <p>告诉 Agent 具体修改项（哪一页第几句），或直接在 Markdown 的 📝销售补充 处编辑后要求重新生成 PPT。</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="icon blue">❓</span>支持英文版/简版/加长版吗？</h3>
+    <p>支持。交付完成后告诉 Agent：<br>
+    · 出英文版<br>
+    · 出简版（5 页）<br>
+    · 出超级路演版（30 页）</p>
+  </div>
+</section>
+
+<!-- ==================== INDUSTRY COLOR TABLE ==================== -->
+<section id="industry-colors">
+  <h2>附：行业色彩对照表</h2>
+  <p class="section-sub">主题 B 自动推导时的行业默认色表（全部通过反绿检测）</p>
+
+  <div class="data-table-wrap">
+    <table class="dtable">
+      <thead>
+        <tr><th>行业</th><th>主色</th><th>辅色</th><th>预览</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>银行 / 国企 / 央企</td>
+          <td><code>#C8272A</code> 中国红</td>
+          <td><code>#FFD166</code> 金</td>
+          <td>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #C8272A; vertical-align: middle;"></span>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #FFD166; vertical-align: middle; margin-left: 4px;"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>证券 / 金融科技</td>
+          <td><code>#005BAC</code> 券商蓝</td>
+          <td><code>#FFC93C</code> 金</td>
+          <td>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #005BAC; vertical-align: middle;"></span>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #FFC93C; vertical-align: middle; margin-left: 4px;"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>白酒 / 消费</td>
+          <td><code>#7A1F2B</code> 酒红</td>
+          <td><code>#E5B971</code> 琥珀</td>
+          <td>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #7A1F2B; vertical-align: middle;"></span>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #E5B971; vertical-align: middle; margin-left: 4px;"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>医药 / 生物科技</td>
+          <td><code>#5A4FCF</code> 深紫</td>
+          <td><code>#FFA37A</code> 珊瑚</td>
+          <td>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #5A4FCF; vertical-align: middle;"></span>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #FFA37A; vertical-align: middle; margin-left: 4px;"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>新能源 / 电池 / 光伏</td>
+          <td><code>#2E3A8C</code> 钴蓝</td>
+          <td><code>#FF7A3C</code> 橙</td>
+          <td>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #2E3A8C; vertical-align: middle;"></span>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #FF7A3C; vertical-align: middle; margin-left: 4px;"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>互联网 / SaaS</td>
+          <td><code>#0B2540</code> 深海蓝</td>
+          <td><code>#5B8DEF</code> 天蓝</td>
+          <td>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #0B2540; vertical-align: middle;"></span>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #5B8DEF; vertical-align: middle; margin-left: 4px;"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>汽车 / 高端制造</td>
+          <td><code>#1F1F1F</code> 哑黑</td>
+          <td><code>#C9A961</code> 香槟金</td>
+          <td>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #1F1F1F; vertical-align: middle;"></span>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #C9A961; vertical-align: middle; margin-left: 4px;"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>半导体 / 硬科技</td>
+          <td><code>#10213A</code> 暗蓝</td>
+          <td><code>#00A8E8</code> 电光蓝</td>
+          <td>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #10213A; vertical-align: middle;"></span>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #00A8E8; vertical-align: middle; margin-left: 4px;"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>新消费 / 互联网零售</td>
+          <td><code>#FF4E5C</code> 珊瑚红</td>
+          <td><code>#FFD166</code> 金</td>
+          <td>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #FF4E5C; vertical-align: middle;"></span>
+            <span style="display: inline-block; width: 24px; height: 24px; border-radius: 6px; background: #FFD166; vertical-align: middle; margin-left: 4px;"></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="page-footer">
+  <div class="logo-text">Xueqiu · 雪球商业</div>
+  <p>上市公司 MVM / IR 传播方案 Skill 使用说明书 · v1.1 · 2026-04-23</p>
+  <p style="margin-top: 8px; opacity: 0.5;">Powered by Driven Agent</p>
+</footer>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"7b3d4e98b7044c6b87fb096979d37e67","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
